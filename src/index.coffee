@@ -2,13 +2,13 @@
 Jimp = require('jimp')
 splitText = require('split-text-middle')
 
-module.exports = ({path, text, color, quality, fontSize}) ->
+module.exports = ({path, text, color, quality, fontSize, blackFont, whiteFont}) ->
   quality ?= 60
   color ?= 'white'
   fontSize ?= 64
 
-  blackFont = Jimp["FONT_SANS_#{fontSize}_BLACK"]
-  whiteFont = Jimp["FONT_SANS_#{fontSize}_WHITE"]
+  blackFont ?= Jimp["FONT_SANS_#{fontSize}_BLACK"]
+  whiteFont ?= Jimp["FONT_SANS_#{fontSize}_WHITE"]
 
   font =
     if color is 'white'
